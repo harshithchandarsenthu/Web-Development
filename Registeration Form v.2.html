@@ -1,0 +1,42 @@
+<html>
+<head>
+    <title>Simple Form</title>
+</head>
+<body>
+    <h1>Registration Form</h1>
+
+    <form>
+        <fieldset>
+            <legend> Personal Information </legend>
+        <label>Name:</label><br>
+        <input type="text" id="name" name="name" placeholder="Enter your name"><br><br>
+        <label>Contact Number (Won't be publicly displayed):</label><br>
+        <input type="password" id="contact" placeholder="Contact Number"><br><br>
+        <label>Gender:</label><br>
+        <input type="radio" id="male" name="gender">Male<br>
+        <input type="radio" id="female" name="gender">Female<br><br>
+        <label>Birthday</label>
+        <input type="date" id="birthday" name="birthday">Birthday
+        </fieldset>
+        <fieldset>
+            <legend> Log-in Credentials </legend>
+        <input type="email" id="email" name="email" placeholder="Enter your E-mail ID"><br><br>
+        <label>Password:</label><br>
+        <input type="password" id="password" name="password" placeholder="Password"><br><br>
+        </fieldset>
+        <fieldset>
+            <legend> Course details </legend>
+        <label>Courses to attend:</label><br>
+        
+        <input type="checkbox" id="courses" name="financial math">Financial Math<br>
+        <input type="checkbox" id="courses" name="trignometry">Trignometry<br>
+        <input type="checkbox" id="courses" name="algebra">Algebra<br>
+        <input type="checkbox" id="courses" name="arithmetic">Arithmetics<br><br>
+        <label> Course Duration </label><br>
+        <input type="radio" id="course-duration" name="1 month">1 month<br>
+        <input type="radio" id="course-duration" name="2 months">2 months<br><br>
+        </fieldset>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
