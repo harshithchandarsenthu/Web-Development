@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>Account Info</title>
+    </head>
+    <style>
+        .card {background: linear-gradient(to bottom, aquamarine, beige); border: 9px inset red; border-radius: 10%; text-align: center; width: 200px; height: 230px;}
+        .card p {font-style: bold; color: black;}
+        .card h2 {color: black;}
+        body {background: linear-gradient(to bottom, lightskyblue, grey);}
+    </style>
+    <body>
+        <div class="card">
+        <p id="id1"></p>
+        <h2>Contact details</h2>
+        <p>Name: <span id="name"></span></p>
+        <p>Occupation: <span id="occ"></span></p>
+        <p>Appears in: <span id="app"></span></p>
+        <p>Age: <span id="age"></span></p>
+        </div>
+        <script>
+            var myContact = {
+            name: "Leonardo DiCaprio",
+            occ: "Actor",
+            app: "Titanic, Inception, etc.",
+            age: "51"  };
+            var n = document.getElementById("id1")
+            document.getElementById("name").innerHTML = myContact.name;
+            document.getElementById("occ").textContent = myContact.occ;
+            document.getElementById("app").textContent = myContact["app"];
+            document.getElementById("age").textContent = myContact["age"];
+        </script>
+    </body>
+</html>
