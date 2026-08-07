@@ -1,0 +1,65 @@
+<head>
+    <title>
+
+    </title>
+    <style>
+        .card {border: 3px solid navy; width: 300px; height: auto; text-align: center;}
+        .display {border: 3px solid navy;}
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Game Profile</h1>
+    <div class="card" style="text-align: center;">
+    <div class="display">
+    <p id="name">Name:</p>
+    </div>
+    <div class="display">
+    <p id="points">Points:</p>
+    </div>
+    <div class="display">
+    <p id="bonus">Bonus:</p>
+    </div>
+    <div class="display">
+    <p id="team">Team:</p>
+    </div>
+    <div class="display">
+    <p id="vote">Voting Eligibility:</p>
+    </div>
+    <div class="display">
+    <p id="rank">Rank:</p>
+    </div>
+    <div class="display">
+    <p id="medal">Medals won:</p>
+    </div>
+    <div class="display">
+    <p id="day">Greeting:</p>
+    </div>
+    </div>
+    <script>
+        let bonus = null;   
+        let team;
+        let name = "Dave"; 
+        let score = 75;
+        let highestscore = 100;
+        let topscore = score == highestscore;          
+        document.getElementById("bonus").innerHTML = "Bonus:" + bonus;   
+        document.getElementById("team").innerHTML = "Team: " + team;
+        document.getElementById("name").innerHTML  = "Name:" + name;
+        document.getElementById("rank").innerHTML = "Score:" + score + " out of " + highestscore;
+        document.getElementById("points").innerHTML = "Topscore reached:" + topscore;  
+        let age = 19;
+        if (age >= 18) {document.getElementById("vote").innerHTML = "Eligible to vote: Yes";}
+        else if (age %2 == 0) {document.getElementById("vote").innerHTML = "Age is even and is eligible vote this year.";}
+        else {document.getElementById("vote").innerHTML = "Not eligible to vote: Yes";} 
+        let hour = new Date().getHours();
+        let greeting;
+        if (hour < 12) {greeting = "Good Morning!";} 
+        else if (hour < 17) {greeting = "Good Afternoon!";} 
+        else {greeting = "Good Evening!";}
+        document.getElementById("day").innerHTML = "Greeting:" + greeting;
+        let badge = "";
+        let count = 0;
+        while (count < 5) {badge = badge + "🎖️ "; count = count + 1;}
+        document.getElementById("medal").innerHTML = "Badge Count:" + badge;
+    </script>
+</body>
