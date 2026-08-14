@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>Planets</title>
+        <style>
+        body {font-family: Arial; text-align: center;}
+        #planets {display: flex; justify-content: center; gap: 20px;}
+        .planet1 {width: 200px; margin: 10px; padding: 20px; border: 2px solid black; border-radius: 10px; background: linear-gradient(to right, lightgreen, lightblue)}
+        .planet2 {width: 200px; margin: 10px; padding: 20px; border: 2px solid black; border-radius: 10px; background: linear-gradient(to right, darkred, crimson, coral);}
+        .planet3 {width: 200px; margin: 10px; padding: 20px; border: 2px solid black; border-radius: 10px; background: linear-gradient(to right, beige, coral, orangered)}
+        button {padding: 10px 20px;font-size: 16px;}
+        </style>
+    </head>
+    <body>
+        <h1>Our Planets</h1>
+        <button onclick="showPlanet()">Show Planets!</button>
+        <div id="planets"></div>
+        <script>
+            class Planet {
+            constructor(name, fact) {
+                this.name = name;
+                this.fact = fact;}}
+                let planet1 = new Planet("Earth", "Earth is our home planet.");
+                let planet2 = new Planet("Mars", "Mars is known as the Red Planet.");
+                let planet3 = new Planet("Jupiter", "Jupiter is the largest planet.");
+                function showPlanet() {
+                document.getElementById("planets").innerHTML =
+                "<div class='planet1'>" +
+                "<h2>" + planet1.name + "</h2>" +
+                "<p>" + planet1.fact + "</p>" +
+                "</div>" +
+                "<div class='planet2'>" +
+                "<h2>" + planet2.name + "</h2>" +
+                "<p>" + planet2.fact + "</p>" +
+                "</div>" +
+                "<div class='planet3'>" +
+                "<h2>" + planet3.name + "</h2>" +
+                "<p>" + planet3.fact + "</p>" +
+                "</div>";}
+        </script>
+    </body>
+</html>
