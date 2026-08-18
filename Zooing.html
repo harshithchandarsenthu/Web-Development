@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome</title>
+    <style>
+        body {background-color: rgb(119, 106, 215);font-family: Arial, sans-serif;}
+        .zoo { border: 6px solid orange; border-radius: 10px; background-color: white; margin: 20px auto; padding: 15px;width: 60%; text-align: center;}
+        .zoozone {border: 3px solid orange;border-radius: 10px;margin: 10px;padding: 10px;background-color: #f9f9f9;}
+    </style>
+    </head>
+    <body id="background">
+       <div class="zoo" id="zoo">
+        <h2>Time to see these animals</h2>
+        <div class="zoozone">
+            <p>Zone 1: Hyena</p>
+        </div>
+        <div class="zoozone">
+            <p>Zone 2: Tiger</h6></p>
+        </div>
+        <div class="zoozone">
+            <p>Zone 3: Elephant</h6></p>
+        </div>
+        <div class="zoozone">
+            <p>Zone 4: Crabs</p>
+        </div>
+        <div class="zoozone">
+            <p>Zone 5: Gatitos</p>
+        </div>
+        <div class="zoozone">
+            <p>Zone 6: Doggies</p>
+        </div>
+        <div class="zoozone">
+            <p>Zone 7: Rabbits</p>
+        </div>
+        <div class="zoozone">
+            <p>Zone 8: Kangaroos</p>
+        </div>
+    </div>
+    <button onclick="changeColour()"> Click to Change Background Colour</button>
+    <p id="demo" style="text-align: center;"></p>
+    <script>
+        function changeColour() {
+            document.getElementById("background").style.backgroundColor = "tomato";
+            document.getElementById("demo").innerHTML = document.title + " them to the zoo";}
+    </script>
+    </body>
+    </html>
