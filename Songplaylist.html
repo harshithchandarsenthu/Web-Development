@@ -1,0 +1,52 @@
+<html> 
+    <head> 
+        <title>Songs played</title> 
+        <style> 
+            body {font-family: Arial, Helvetica, sans-serif;}
+            .spotify {width: auto; margin: auto; padding: 20px; border: 2px solid limegreen; border-radius: 10px; background-color:lightgrey;} 
+            .spotifyer {width: auto; margin: auto; padding: 20px; border: 2px solid limegreen; border-radius: 10px; background-color:lightgrey; color:limegreen;} 
+        </style> 
+    </head> 
+    <body> 
+        <h1 style="color: limegreen; text-align: center;">Spotify</h1> 
+        <div class="spotify"> 
+            <div class="spotifyer"> 
+                <h2 style="color: limegreen;">Songs recently listened to:</h2> 
+                <p style="color:limegreen;" id="id1"></p> 
+            </div> 
+            <div class="spotifyer"> 
+                <p id="id2"></p> 
+            </div> 
+            <div class="spotifyer"> 
+                <p id="id3"></p> 
+            </div>
+            <div class="spotifyer"> 
+                <h2>Least to Most</h2>
+                <p id="id4"></p>
+                <p id="id7"></p>
+                <button onclick="leastToMost()">Sort Least to Most</button>
+                <button onclick="MostToLeast()">Sorted Most to least</button>
+            </div>
+            <div class="spotifyer"> 
+                <h2>Sorting</h2>
+                <p id="id5"></p>
+                <button onclick="sortSongs()">Sort Songs</button>
+            </div>
+        </div> 
+        <script> 
+            var songs = ['Battle Ground', 'Hollow', 'Blossom', 'Always', 'Fever']; 
+            var arr = songs.sort(); 
+            var plays = [39, 85, 10, 50, 15]; 
+            plays.sort(function(a, b) { return a - b; }); 
+            var arr2 = plays.map(function(count){return count * 3;}) 
+            document.getElementById("id1").innerHTML = arr.reverse(); 
+            document.getElementById("id2").innerHTML = plays.sort(function(a, b) {return b - a;}); 
+            document.getElementById("id3").innerHTML = arr2;
+            function leastToMost() {
+                document.getElementById("id4").innerHTML = plays.sort(function(a, b) {return a - b;});}
+            function MostToLeast() {document.getElementById("id7").innerHTML = plays.sort(function(a, b) {return b - a;});}
+            function sortSongs() {
+                document.getElementById("id5").innerHTML = songs.sort();}
+        </script> 
+    </body> 
+</html>
