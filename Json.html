@@ -1,0 +1,39 @@
+<html>  
+    <head>  
+        <title>Json</title>  
+        <style>  
+            body {
+                background: linear-gradient(135deg, beige, lighyellow);font-family: Arial, Helvetica, sans-serif;text-align: center;padding-top: 60px;}
+            .order {width: 350px; margin: 20px auto; padding: 25px;background-color: white; border-radius: 15px;}
+            #item {font-size: 20px;font-weight: bold; color: maroon;}
+            button {background-color: mediumspringgreen;color: #222; padding: 12px 20px; border-radius: 8px; font-size: 16px; font-weight: bold;}
+            #status {margin-top: 20px; font-size: 18px; color: #e67e22; font-weight: bold;}
+        </style>  
+    </head>  
+    <body>  
+        <div class="order">  
+           <p>Order:</p><p id="id2"><p id="item"></p></p>
+        </div>  
+        <div class="order">  
+            <button onclick="startDelivery()">Click here to start your order!</button>  
+            <p id="status"></p> 
+            <p id="result"></p> 
+        </div>  
+        <script>  
+            let order = {item: "Pizza"};  
+            let jsonText = JSON.stringify(order);  
+            document.getElementById("id2").innerHTML = jsonText;  
+            let loadedOrder = JSON.parse(jsonText); document.getElementById("item").innerHTML = loadedOrder.item;
+            function delay(ms) {  
+                return new Promise(resolve => {
+                    setTimeout(resolve, ms);});}  
+            async function startDelivery() {  
+                await delay(1000); 
+                document.getElementById("status").innerHTML = "Kitchen is preparing..."; 
+                await delay(3000);  
+                document.getElementById("status").innerHTML = "Out for delivery!"; 
+                await delay(5000); 
+                document.getElementById("result").innerHTML = "Your order has arrived!";}  
+        </script>  
+    </body>  
+</html>
