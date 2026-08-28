@@ -1,0 +1,65 @@
+```html
+<html> 
+    <head> 
+        <title>Superheroes</title> 
+        <style> 
+        body {font-family: Arial; text-align: center;} 
+        #heroes {display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;} 
+        
+        .hero1 {width: 200px; margin: 10px; padding: 20px; border: 2px solid black; border-radius: 10px; background: linear-gradient(to right, lightblue, blue);} 
+        .hero2 {width: 200px; margin: 10px; padding: 20px; border: 2px solid black; border-radius: 10px; background: linear-gradient(to right, darkred, crimson, coral);} 
+        .hero3 {width: 200px; margin: 10px; padding: 20px; border: 2px solid black; border-radius: 10px; background: linear-gradient(to right, beige, gold, orange);} 
+        .hero4 {width: 200px; margin: 10px; padding: 20px; border: 2px solid black; border-radius: 10px; background: linear-gradient(to right, purple, violet, pink);} 
+        .hero5 {width: 200px; margin: 10px; padding: 20px; border: 2px solid black; border-radius: 10px; background: linear-gradient(to right, lightgreen, green, darkgreen);} 
+        
+        button {padding: 10px 20px; font-size: 16px;} 
+        </style> 
+    </head> 
+    
+    <body> 
+        <h1>Our Superheroes</h1> 
+        <button onclick="showHeroes()">Show Heroes!</button> 
+        <div id="heroes"></div> 
+        
+        <script> 
+            class Hero { 
+            constructor(name, power) { 
+                this.name = name; 
+                this.power = power;}} 
+                
+                let hero1 = new Hero("Superman", "Super strength and flight."); 
+                let hero2 = new Hero("Spider-Man", "Wall climbing and spider-sense."); 
+                let hero3 = new Hero("Iron Man", "Uses a powerful high-tech suit."); 
+                let hero4 = new Hero("Thor", "Controls lightning and uses Mjolnir."); 
+                let hero5 = new Hero("Hulk", "Has incredible strength."); 
+                
+                function showHeroes() { 
+                document.getElementById("heroes").innerHTML = 
+                "<div class='hero1'>" + 
+                "<h2>" + hero1.name + "</h2>" + 
+                "<p>" + hero1.power + "</p>" + 
+                "</div>" + 
+                
+                "<div class='hero2'>" + 
+                "<h2>" + hero2.name + "</h2>" + 
+                "<p>" + hero2.power + "</p>" + 
+                "</div>" + 
+                
+                "<div class='hero3'>" + 
+                "<h2>" + hero3.name + "</h2>" + 
+                "<p>" + hero3.power + "</p>" + 
+                "</div>" + 
+                
+                "<div class='hero4'>" + 
+                "<h2>" + hero4.name + "</h2>" + 
+                "<p>" + hero4.power + "</p>" + 
+                "</div>" + 
+                
+                "<div class='hero5'>" + 
+                "<h2>" + hero5.name + "</h2>" + 
+                "<p>" + hero5.power + "</p>" + 
+                "</div>";} 
+        </script> 
+    </body> 
+</html>
+```
