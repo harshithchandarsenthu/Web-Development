@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Event Registration Form</title>
+    </head>
+    <body>
+        <h1>Event Registration Form</h1>
+        <h2>Validation in JS</h2>
+        <form id="registrationForm">
+            <label>Name:</label>
+            <input type="text" id="name">
+            <br><br>
+            <label>Email:</label>
+            <input type="text" id="email">
+            <br><br>
+            <label>Age:</label>
+            <input type="number" id="age">
+            <br><br>
+            <label>Event:</label>
+            <select id="event">
+                <option value="">Select an event</option>
+                <option value="Sports Day">Sports Day</option>
+                <option value="Science Fair">Science Fair</option>
+                <option value="Cultural Day">Cultural Day</option>
+            </select>
+            <br><br>
+            <button type="submit">Register</button>
+        </form>
+        <p id="feedback"></p>
+        <div id="pass"></div>
+        <script>
+            document.getElementById("registrationForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let age = document.getElementById("age").value;
+            let selectedEvent = document.getElementById("event").value;
+            let feedback = document.getElementById("feedback");
+            let pass = document.getElementById("pass");
+            feedback.innerHTML = "";
+            pass.innerHTML = "";
+            if (name == "") {feedback.innerHTML = "Please enter your name."; return;}
+            if (email == "") {feedback.innerHTML = "Please enter your email."; return;}
+            if (age == "" || age < 10) {feedback.innerHTML = "Please enter a valid age."; return;}
+            if (selectedEvent == "") {feedback.innerHTML = "Please select an event."; return;}
+            feedback.innerHTML = "Registration successful! Generating your event pass...";
+            setTimeout(function() {
+                let passNumber = Math.floor(Math.random() * 9000) + 1000;
+                pass.innerHTML =
+                    "<h2>Event Pass</h2>" +
+                    "<p><b>Name:</b> " + name + "</p>" +
+                    "<p><b>Email:</b> " + email + "</p>" +
+                    "<p><b>Event:</b> " + selectedEvent + "</p>" +
+                    "<p><b>Pass Number:</b> " + passNumber + "</p>";
+            }, 2000);
+          });
+        </script>
+    </body>
+</html>
