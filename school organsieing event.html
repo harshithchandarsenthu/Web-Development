@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>School Event Data Viewer</title>
+    </head>
+    <body>
+        <h1>School Event Data Viewer</h1>
+        <p id="loading">Loading school event data...</p>
+        <div id="output"></div>
+        <script>
+            let eventData = {
+    name: "Annual Sports Day",
+    date: "25 September 2026",
+    time: "9:00 AM",
+    location: "School Playground",
+    organizer: "School Sports Department"
+};
+
+
+// Simulate loading data from a server
+setTimeout(function() {
+
+    // Convert JavaScript object into JSON text
+    let jsonData = JSON.stringify(eventData);
+
+    // Convert JSON text back into a JavaScript object
+    let eventObject = JSON.parse(jsonData);
+
+    // Remove loading message
+    document.getElementById("loading").innerHTML = "Event data loaded!";
+
+    // Display event details
+    document.getElementById("output").innerHTML =
+        "<h2>" + eventObject.name + "</h2>" +
+        "<p><b>Date:</b> " + eventObject.date + "</p>" +
+        "<p><b>Time:</b> " + eventObject.time + "</p>" +
+        "<p><b>Location:</b> " + eventObject.location + "</p>" +
+        "<p><b>Organizer:</b> " + eventObject.organizer + "</p>";
+
+}, 2000);
+        </script>
+    </body>
+</html>
