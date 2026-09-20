@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Text Fixer Tool</title>
+</head>
+<body>
+    <div id="container">
+        <h1>My Text Fixer Tool</h1>
+        <h2>JavaScript in Detail</h2>
+        <p>Enter a sentence below and use the buttons to check its data type, convert values, replace words, and handle errors.</p>
+        <input type="text" id="textInput" placeholder="Enter a sentence">
+        <br><br>
+        <button onclick="checkType()">Check Data Type</button>
+        <button onclick="convertText()">Convert to String</button>
+        <button onclick="replaceWord()">Replace Word</button>
+        <button onclick="handleError()">Handle Error</button>
+        <div id="output"></div>
+    </div>
+    <script>
+        function checkType() {
+
+    let text = document.getElementById("textInput").value;
+
+    document.getElementById("output").innerHTML =
+        "The data type of your input is: " + typeof text;
+}
+
+
+function convertText() {
+
+    let text = document.getElementById("textInput").value;
+
+    let convertedText = String(text);
+
+    document.getElementById("output").innerHTML =
+        "Converted value: " + convertedText +
+        "<br>Data type: " + typeof convertedText;
+}
+
+
+function replaceWord() {
+
+    let text = document.getElementById("textInput").value;
+
+    let fixedText = text.replace("bad", "good");
+
+    document.getElementById("output").innerHTML =
+        "Original sentence: " + text +
+        "<br>Fixed sentence: " + fixedText;
+}
+
+
+function handleError() {
+
+    try {
+
+        let number = Number(document.getElementById("textInput").value);
+
+        if (isNaN(number)) {
+            throw new Error("The value is not a valid number.");
+        }
+
+        document.getElementById("output").innerHTML =
+            "The number is valid: " + number;
+
+    }
+
+    catch (error) {
+
+        document.getElementById("output").innerHTML =
+            "Error handled safely: " + error.message;
+
+    }
+}
+    </script>
+</body>
+</html>
