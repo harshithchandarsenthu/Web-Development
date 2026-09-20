@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Daily Task Organizer</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id="container">
+            <h1>Daily Task Organizer</h1>
+            <h2>Array sorting and mapping in JavaScript</h2>
+            <p>Welcome</p>
+            <h3>Tasks</h3>
+            <button onclick="sortTasks()">Sort Task Names</button>
+            <button onclick="reverseTasks()">Reverse Task List</button>
+            <button onclick="sortTimes()">Sort Task Times</button>
+            <button onclick="labelTimes()">Add Time Labels</button>
+            <div id="output"></div>
+
+        </div>
+        <script>
+            let tasks = ["Study", "Exercise", "Homework", "Read", "Dinner"];
+
+let times = ["6:00 PM", "4:00 PM", "7:30 PM", "5:00 PM", "8:00 PM"];
+
+function showTasks() {
+    document.getElementById("output").innerHTML =
+        "<b>Tasks:</b><br>" + tasks.join("<br>");
+}
+
+function sortTasks() {
+    tasks.sort();
+
+    showTasks();
+}
+
+function reverseTasks() {
+    tasks.reverse();
+
+    showTasks();
+}
+
+function sortTimes() {
+    times.sort();
+
+    document.getElementById("output").innerHTML =
+        "<b>Sorted Times:</b><br>" + times.join("<br>");
+}
+
+function labelTimes() {
+    let labelledTimes = times.map(function(time) {
+        return "Task Time: " + time;
+    });
+
+    document.getElementById("output").innerHTML =
+        "<b>Labelled Times:</b><br>" + labelledTimes.join("<br>");
+}
+
+showTasks();
+        </script>
+    </body>
+</html>
