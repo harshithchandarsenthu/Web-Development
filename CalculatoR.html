@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Calculator</title>
+        <style>
+            body {
+                background-color: #e8f0ff;
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 30px;
+            }
+
+            h1 {
+                text-align: center;
+                color: #243b6b;
+                margin-bottom: 25px;
+            }
+
+            #calculator {
+                width: 320px;
+                margin: auto;
+                background-color: white;
+                padding: 20px;
+                border-radius: 15px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            }
+
+            #display {
+                width: 100%;
+                height: 60px;
+                box-sizing: border-box;
+                border: none;
+                background-color: #f1f4fa;
+                border-radius: 10px;
+                margin-bottom: 15px;
+                padding: 10px;
+                font-size: 25px;
+                text-align: right;
+            }
+
+            #keyboard {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 10px;
+            }
+
+            #keyboard button {
+                height: 55px;
+                border: none;
+                border-radius: 10px;
+                background-color: #dce6ff;
+                color: #243b6b;
+                font-size: 20px;
+                cursor: pointer;
+            }
+
+            #keyboard button:hover {
+                background-color: #c5d5ff;
+            }
+
+            #keyboard button:last-child {
+                grid-column: span 4;
+                background-color: #6c8cff;
+                color: white;
+            }
+
+            #transactions {
+                width: 320px;
+                margin: 20px auto;
+                background-color: white;
+                padding: 20px;
+                border-radius: 15px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+                text-align: center;
+            }
+
+            #transactions h2 {
+                color: #243b6b;
+            }
+
+            #transactions button {
+                width: 120px;
+                height: 45px;
+                border: none;
+                border-radius: 10px;
+                margin: 5px;
+                font-size: 16px;
+                cursor: pointer;
+            }
+
+            #transactions button:first-of-type {
+                background-color: #8ed1a7;
+                color: #174d2c;
+            }
+
+            #transactions button:last-of-type {
+                background-color: #ffaaa5;
+                color: #70201c;
+            }
+
+            #transactions button:hover {
+                opacity: 0.8;
+            }
+
+            #balance {
+                width: 320px;
+                margin: 20px auto;
+                background-color: white;
+                padding: 20px;
+                border-radius: 15px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+                text-align: center;
+            }
+
+            #balance h2 {
+                color: #243b6b;
+            }
+
+            #balance p {
+                font-size: 20px;
+            }
+
+            #balance span {
+                font-weight: bold;
+                color: #4868c9;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Calculator</h1>
+        <div id="calculator">
+            <input type="text" id="display" value="0" readonly>
+            <div id="keyboard">
+                <button>7</button>
+                <button>8</button>
+                <button>9</button>
+                <button>/</button>
+                <button>4</button>
+                <button>5</button>
+                <button>6</button>
+                <button>*</button>
+                <button>1</button>
+                <button>2</button>
+                <button>3</button>
+                <button>-</button>
+                <button>0</button>
+                <button>.</button>
+                <button>C</button>
+                <button>+</button>
+                <button>=</button>
+            </div>
+        </div>
+        <div id="transactions">
+            <h2>Transactions</h2>
+            <button>Credit</button>
+            <button>Debit</button>
+        </div>
+        <div id="balance">
+            <h2>Balance</h2>
+            <p>Remaining Balance: <span>0</span></p>
+        </div>
+<script>
+    let display = document.getElementById("display");
+    let buttons = document.querySelectorAll("#keyboard button");
+    let calculation = "";
+    buttons.forEach(function(button) {
+        button.addEventListener("click", function() {
+            let value = button.innerText;
+            if (value == "C") {
+                calculation = "";
+                display.value = "0";
+            }
+            else if (value == "=") {
+                try {
+                    calculation = eval(calculation);
+                    display.value = calculation;
+                }
+                catch {
+                    display.value = "Error";
+                    calculation = "";
+                }
+            }
+            else {
+                calculation = calculation + value;
+                display.value = calculation;
+            }
+        });
+    });
+    let currentBalance = 0;
+    let balance = document.querySelector("#balance span");
+    let transactionButtons = document.querySelectorAll("#transactions button");
+    let creditButton = transactionButtons[0];
+    let debitButton = transactionButtons[1];
+    creditButton.addEventListener("click", function() {
+        let amount = Number(prompt("Enter the amount to credit:"));
+        if (amount > 0) {
+            currentBalance = currentBalance + amount;
+            balance.innerText = currentBalance.toFixed(2);
+        }
+    else {
+            alert("Please enter a valid amount.");
+        }
+    });
+    debitButton.addEventListener("click", function() {
+        let amount = Number(prompt("Enter the amount to debit:"));
+        if (amount > 0) {
+            if (amount <= currentBalance) {
+                currentBalance = currentBalance - amount;
+                balance.innerText = currentBalance.toFixed(2);
+            }
+            else {
+                alert("Not enough balance!");
+
+            }
+        }
+        else {
+            alert("Please enter a valid amount.");
+        }
+    });
+</script>
+    </body>
+</html>
