@@ -26,7 +26,7 @@ for i in range(5):
  board.pendown()
  petal_colors = ["red", "purple", "cyan", "magenta", "lime"]
 for i in range(36):
- oard.color(petal_colors[i % 5])
+ board.color(petal_colors[i % 5], petal_colors[(i + 2) % 5])
  board.begin_fill()
 for j in range(4):
  board.forward(55)
