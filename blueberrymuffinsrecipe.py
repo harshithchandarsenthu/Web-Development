@@ -1,0 +1,22 @@
+muffins = ("Blueberry Muffins", "American", 25, "Easy")
+waffles = ("Waffles", "Belgian", 20, "Easy")
+print(muffins[0])
+print(muffins[-1])
+print(waffles[1])
+print(waffles[-2])
+recipes = (muffins, waffles)
+print(recipes[0][1])
+print(recipes[1][0])
+print(muffins[1:3])
+for item in muffins:
+    print(item)
+muffin_ingredients = {"blueberries", "flour", "sugar", "milk", "butter", "sugar"}
+waffle_ingredients = {"flour", "milk", "eggs", "butter", "sugar"}
+print(muffin_ingredients)
+muffin_ingredients.add("vanilla")
+muffin_ingredients.discard("blueberries")
+print(muffin_ingredients)
+print(muffin_ingredients.union(waffle_ingredients))
+print(muffin_ingredients.intersection(waffle_ingredients))
+print(muffin_ingredients.difference(waffle_ingredients))
+print(muffin_ingredients.symmetric_difference(waffle_ingredients))
